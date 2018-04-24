@@ -1,29 +1,32 @@
-﻿using UnityEngine;
-using VRTK;
-using VRTK.UnityEventHelper;
-
-public class ButtonReactor : MonoBehaviour
+﻿namespace VRTK.Examples
 {
-    public GameObject go;
-    public Transform dispenseLocation;
+    using UnityEngine;
+    using UnityEventHelper;
 
-    private VRTK_Button_UnityEvents buttonEvents;
 
-    private void Start()
+    public class ButtonReactor : MonoBehaviour
     {
-        buttonEvents = GetComponent<VRTK_Button_UnityEvents>();
-        if (buttonEvents == null)
+        public GameObject go;
+        public Transform dispenseLocation;
+
+        private VRTK_Button_UnityEvents buttonEvents;
+
+        private void Start()
         {
-            buttonEvents = gameObject.AddComponent<VRTK_Button_UnityEvents>();
+            buttonEvents = GetComponent<VRTK_Button_UnityEvents>();
+            if (buttonEvents == null)
+            {
+                buttonEvents = gameObject.AddComponent<VRTK_Button_UnityEvents>();
+            }
+            buttonEvents.OnPushed.AddListener(handlePush);
         }
-        buttonEvents.OnPushed.AddListener(handlePush);
-    }
 
-    private void handlePush(object sender, Control3DEventArgs e)
-    {
-        VRTK_Logger.Info("Pushed");
+        private void handlePush(object sender, Control3DEventArgs e)
+        {
+            VRTK_Logger.Info("Pushed");
 
-        GameObject newGo = (GameObject)Instantiate(go, dispenseLocation.position, Quaternion.identity);
-        Destroy(newGo, 10f);
+            GameObject newGo = (GameObject)Instantiate(go, dispenseLocation.position, Quaternion.identity);
+            Destroy(newGo, 10f);
+        }
     }
 }

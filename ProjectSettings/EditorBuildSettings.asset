@@ -9,5 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/VRTK_Scripts.unity
     guid: 19cde6e8e04bfd842a3fe80607a8ede0
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Scenes/Touch_PushRedButton.unity
     guid: eb496f74aba05db418da4083984af508
+  - enabled: 1
+    path: Assets/Scenes/Touch_PushBlueButton.unity
+    guid: bd267ab2fab0b0a4d87ddb64abb506b3
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 62600a0a6d561aa44a4be73ce7425084
